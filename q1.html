@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+</head>
+<body>
+
+<h2>Discount Calculator</h2>
+
+<p>Total Cost: <input type="number" id="totalCost" step="0.01"></p>
+<p>Discount Percentage: <input type="number" id="discountPercentage" step="0.01"></p>
+
+<button onclick="calculateDiscount()">Calculate Discount</button>
+
+<p>Discounted Price: <span id="discountedPrice"></span></p>
+
+<script>
+    function calculateDiscount() {
+        var totalCost = parseFloat(document.getElementById("totalCost").value);
+        var discountPercentage = parseFloat(document.getElementById("discountPercentage").value);
+        
+        if (isNaN(totalCost) || isNaN(discountPercentage)) {
+            alert("Please enter valid numbers for total cost and discount percentage.");
+            return;
+        }
+        
+        var discountedPrice = totalCost - (totalCost * (discountPercentage / 100));
+        
+        document.getElementById("discountedPrice").textContent = discountedPrice.toFixed(2);
+    }
+</script>
+
+</body>
+</html>
